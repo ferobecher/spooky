@@ -22,7 +22,7 @@ public class MenuPanel extends JLayeredPane{
         this.setBounds(0,0,1600,900);
 
         //background
-        bg = new JLabel("", new ImageIcon("res/pics/bg.jpg"), JLabel.CENTER);
+        bg = new JLabel("", new ImageIcon("res/pics/bg/spooky.png"), JLabel.CENTER);
         bg.setPreferredSize(new Dimension(100,100));
         bg.setOpaque(true);
         bg.setBounds(0,0,1600,900);

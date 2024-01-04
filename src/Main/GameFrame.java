@@ -15,7 +15,7 @@ public class GameFrame extends JFrame {
         this.cardLayout = new CardLayout();
         this.cardPanel = new JPanel(this.cardLayout);
         this.menuPanel = new MenuPanel(this);
-        this.gamePanel = new GamePanel(this);
+        this.gamePanel = new GamePanel();
 
         this.cardPanel.add(menuPanel, "menu");
         this.cardPanel.add(gamePanel, "game");

@@ -1,5 +1,6 @@
 package Gameplay;
 
+import Entity.Enemy;
 import Entity.Player;
 import Main.GameFrame;
 
@@ -8,14 +9,14 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
     private Thread gameThread;
-    private KeyInput keyInput = new KeyInput();
+    private final KeyInput keyInput = new KeyInput();
     private final int FPS = 60;
-    private Player player = new Player(this, keyInput);
-    private GameFrame gameFrame;
+    private final Player player = new Player(keyInput);
+    private final Enemy enemy = new Enemy();
+    private final Background bg = new Background();
 
 
-    public GamePanel(GameFrame gameFrame) throws Exception{
-        this.gameFrame = gameFrame;
+    public GamePanel() throws Exception{
 
         this.setLayout(null);
         this.setBounds(0,0,1600,900);
@@ -67,6 +68,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
         this.player.update();
+        this.enemy.update();
     }
 
     public void paintComponent(Graphics g) {
@@ -74,7 +76,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
-        player.draw(g2);
+        this.bg.draw(g2);
+        this.player.draw(g2);
+        this.enemy.draw(g2);
 
         g2.dispose();
     }
