@@ -7,6 +7,17 @@ public class KeyInput implements KeyListener {
     private boolean upPressed, downPressed, rightPressed, leftPressed, shiftPressed, spacePressed, fPressed, cPressed, vPressed;
     private boolean upReleased, downReleased, rightReleased, leftReleased, shiftReleased, spaceReleased, fReleased, cReleased, vReleased;
 
+    KeyInput() {
+        upReleased = false;
+        downReleased = false;
+        rightReleased = false;
+        leftReleased = false;
+        shiftReleased = false;
+        spaceReleased = false;
+        fReleased = false;
+        cReleased = false;
+        vReleased = false;
+    }
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -72,8 +83,8 @@ public class KeyInput implements KeyListener {
             this.shiftReleased = true;
         }
         if(keyCode == KeyEvent.VK_SPACE) {
-            this.spacePressed = false;
             this.spaceReleased = true;
+            this.spacePressed = false;
         }
         if(keyCode == KeyEvent.VK_F) {
             this.fPressed = false;

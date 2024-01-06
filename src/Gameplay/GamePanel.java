@@ -69,6 +69,17 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() {
         this.player.update();
         this.enemy.update();
+        //background change
+        if (Player.getX() > 1550) {
+            Player.setX(0);
+            Background.change();
+            Player.setY(Background.getY());
+        }
+        if (Player.getX() < -200) {
+            Player.setX(1400);
+            Background.change();
+            Player.setY(Background.getY());
+        }
     }
 
     public void paintComponent(Graphics g) {
@@ -78,8 +89,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         this.bg.draw(g2);
         this.player.draw(g2);
-        this.enemy.draw(g2);
-
+        if (Background.hasEnemy()) {
+            this.enemy.draw(g2);
+        }
         g2.dispose();
     }
 }
